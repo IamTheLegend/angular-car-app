@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddCarComponent } from './add-car/add-car.component';
+import { CarAppMaterialModule } from './modules/car-app-material.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AddCarComponent } from './add-car/add-car.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CarAppMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
