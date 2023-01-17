@@ -11,8 +11,15 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button (click)="onBtnClick('Like')">LIKE</button>
+      <button mat-button (click)="onBtnClick('Share')">SHARE</button>
     </mat-card-actions>
+<mat-form-field >
+  <mat-label>Your Name</mat-label>
+  <input matInput placeholder="" value="" type="text" [formControl]="formControls.name">
+  
+</mat-form-field>
+<br>
+Your Name: {{formControls.name.value}}
   </mat-card>
   

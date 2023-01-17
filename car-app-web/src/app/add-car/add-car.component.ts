@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-car',
@@ -7,16 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCarComponent implements OnInit {
 
+  formControls = {
+    'name': new FormControl('')
+  }
 
   urlRepo = {
     "imgUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg"
   }
 
-  pText = "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
+  pText = "No Button Clicked Yet"
+
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onBtnClick(btnType: string){
+    this.pText  = 'Button: "' + btnType + '" is clicked just now';
   }
 
 }
