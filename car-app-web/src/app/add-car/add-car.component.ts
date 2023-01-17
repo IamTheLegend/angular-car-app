@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-car',
@@ -18,14 +18,31 @@ export class AddCarComponent implements OnInit {
 
   pText = "No Button Clicked Yet"
 
+  addCarForm: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { 
+    this.addCarForm = this.formBuilder.group({
+      brand: ["", Validators.required],
+      model: ["",Validators.required],
+      year: ["", Validators.required],
+      price: ["", Validators.required],      
+    });
+  }
 
   ngOnInit(): void {
   }
 
   onBtnClick(btnType: string){
     this.pText  = 'Button: "' + btnType + '" is clicked just now';
+  }
+
+  onSubmit(addCarForm: FormGroup){
+    if(addCarForm.valid){
+      console.log("valid form")
+      console.log(addCarForm)
+    }else{
+      console.log("invalid form")
+    }
   }
 
 }
